@@ -1,5 +1,7 @@
 let cash = 0;
 
+//maybe declare more variables??
+
 const clickUpgrades = {
   shovel: {
     price: 5,
