@@ -1,7 +1,7 @@
 let cash = 0;
 
 //maybe declare more variables??
-
+//figure out the zero problem
 const clickUpgrades = {
   shovel: {
     price: 5,
