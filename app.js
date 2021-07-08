@@ -1,14 +1,16 @@
 let cash = 0;
+//let arrayOfObjects = [shovel, bigShovel, ]
 
 //maybe declare more variables??
 //figure out the zero problem
 const clickUpgrades = {
+  
   shovel: {
     price: 5,
     quantity: 0,
     multiplier: 1
   },
-  bigshovel: {
+  bigShovel: {
     price: 500,
     quantity: 0,
     multiplier: 5
@@ -28,16 +30,29 @@ const autoUpgrades = {
   }
 }
 
-function buyshovel(){
+function buyShovel(){
 if (cash >= clickUpgrades.shovel.price, 
-  console.log('bought'),
-  cash = cash - clickUpgrades.shovel.price)
-update()}
- 
-function buybigshovel(){
-  if (cash >= clickUpgrades.bigshovel.price , 
+  cash = cash - clickUpgrades.shovel.price,
+  console.log('bought'));
+else if (cash < clickUpgrades.shovel.price,
+  console.log('you are too poor to buy this shovel, use your hands peasant!'));
+update()
+}
+
+  // if (cash >= clickUpgrades.shovel.price) {
+     //console.log('bought shovel');
+   //if else (cash = cash - clickUpgrades.shovel.price) {
+    // update();
+  // } else {
+   //  console.log('You are too poor to buy this shovel, use your hands peasant!'); 
+    //}
+  // }
+   
+//}
+function buybigShovel(){
+  if (cash >= clickUpgrades.bigShovel.price , 
     console.log('bought'),
-    cash = cash - clickUpgrades.bigshovel.price)
+    cash = cash - clickUpgrades.bigShovel.price)
   update()
 }
 
