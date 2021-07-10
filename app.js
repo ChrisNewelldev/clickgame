@@ -1,8 +1,6 @@
 let cash = 0;
 //let arrayOfObjects = [shovel, bigShovel, ]
 
-//maybe declare more variables??
-//figure out the zero problem
 let clickUpgrades = {
   
   shovel: {
@@ -17,39 +15,34 @@ let clickUpgrades = {
   }
 };
 
-const autoUpgrades = {
+let autoUpgrades = {
   employee: {
     price: 600,
     quantity: 0,
-    multiplier: 20
+    multiplier: 3
   },
   crew: {
     price: 5000,
     quantity: 0,
-    multiplier: 110
+    multiplier: 7
   }
 }
 
+
+
 function buyShovel(){
+  let shovel = 0
 if (cash >= clickUpgrades.shovel.price){ 
   cash = cash - clickUpgrades.shovel.price,
-  console.log('bought')
+  console.log('bought'),
+  clickUpgrades.shovel.quantity++,
+  clickUpgrades.shovel.multiplier++
 } else {
   console.log('not enough cash')
 }
 update()
 }
 
-  // if (cash >= clickUpgrades.shovel.price) {
-     //console.log('bought shovel');
-   //if else (cash = cash - clickUpgrades.shovel.price) {
-    // update();
-  // } else {
-   //  console.log('You are too poor to buy this shovel, use your hands peasant!'); 
-    //}
-  // }
-   
-//}
 function buybigShovel(){
   if (cash >= clickUpgrades.bigShovel.price , 
     console.log('bought'))
@@ -71,7 +64,7 @@ function buycrew(){
 }
 
 function mine (){
-(cash++)
+(cash +=1*clickUpgrades.shovel.quantity)
 update()
 }
 
@@ -79,7 +72,7 @@ update()
 function update() {
 
   document.getElementById('cash').innerText = cash
- // number of upgrades bought
- // what the multiplier is
+  document.getElementById('clickUpgrades.shovel.quantity').innerText = clickUpgrades.shovel.quantity
+  document.getElementById('clickUpgrades.shovel.multiplier').innerText = clickUpgrades.shovel.multiplier
 }
 
