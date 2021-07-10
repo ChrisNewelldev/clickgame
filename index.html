@@ -17,46 +17,45 @@
   </header>
   <main class="container-fluid">
     <div class="row">
-      <div class="col-sm-6">
-        <img onclick="mine()" class="img-fluid"
-    src=http://www.nasa.gov/sites/default/files/images/685735main_pia15678-43_full.jpg>
-      </div>
-    </div>
-  </main>
-  <footer class="container">
-    <div class="row">
-      <div class="col-12">
+      <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Store</h4>
-            <button onclick="buyShovel()">Shovel</button>
-            <button onclick="buybigShovel()">Big shovel</button>
-            <button onclick="buyEmployee()">Employee</button>
-            <button onclick="buyCrew()">Crew</button>
+            <ul><button onclick="buyShovel()">Shovel:<span id="clickUpgrades.shovel.price">0</span></button></ul>
+            <ul><button onclick="buybigShovel()">Big shovel:<span id="clickUpgrades.bigShovel.price">0</span></button></ul>
+            <ul><button onclick="buyEmployee()">Employee:<span id="autoUpgrades.employee.price">0</span></button></ul>
+            <ul><button onclick="buyCrew()">Crew:<span id="autoUpgrades.crew.price">0</span></button></ul>
           </div>
         </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Inventory</h4>
-          <span>Shovels:<span id="clickUpgrades.shovel.quantity">0</span></span>
-          <span>Big Shovels:<span id="clickUpgrades.bigShovel.quantity">0</span></span>
-          <span>Employees:<span id="autoUpgrades.employee.quantity">0</span></span>
-          <span>Crews:<span id="autoUpgrades.crew.quantity">0</span></span>
+      </div>
+      <div class="col-sm-4">
+        <img onclick="mine()" class="img-fluid"
+    src=http://www.nasa.gov/sites/default/files/images/685735main_pia15678-43_full.jpg>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Inventory</h4>
+            <li>
+            <span>Shovels (+1 click assist):<span id="clickUpgrades.shovel.quantity">0</span></span></li>
+            <li>
+            <span>Big Shovels (+5 click assist):<span id="clickUpgrades.bigShovel.quantity">0</span></span></li>
+            <li><span>Employees (+10 cash/3 seconds):<span id="autoUpgrades.employee.quantity">0</span></span></li>
+            <li><span>Crews (+25 cash/3 seconds):<span id="autoUpgrades.crew.quantity">0</span></span></li>
+          
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
+  </main>
+  <footer class="container-fluid text-center">
   <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Stats</h4>
-          <span>Click Multiplier:<span id="cashPC">0</span></span>
-          <span>Cash per Interval:<span id="cashPI">0</span></span>
+          <span>Total Click assist:<span id="cashPC">0</span></span>
+          <span>Total Cash/3s:<span id="cashPI">0</span></span>
         </div>
       </div>
     </div>
