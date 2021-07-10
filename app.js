@@ -34,8 +34,6 @@ function buyShovel(){
 if (cash >= clickUpgrades.shovel.price, 
   cash = cash - clickUpgrades.shovel.price,
   console.log('bought'));
-else if (cash < clickUpgrades.shovel.price,
-  console.log('you are too poor to buy this shovel, use your hands peasant!'));
 update()
 }
 
@@ -51,8 +49,7 @@ update()
 //}
 function buybigShovel(){
   if (cash >= clickUpgrades.bigShovel.price , 
-    console.log('bought'),
-    cash = cash - clickUpgrades.bigShovel.price)
+    console.log('bought'))
   update()
 }
 
