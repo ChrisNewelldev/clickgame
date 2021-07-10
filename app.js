@@ -1,5 +1,6 @@
 let cash = 0;
-//let arrayOfObjects = [shovel, bigShovel, ]
+let cashPI = 0;
+let cashPC = 0
 
 let clickUpgrades = {
   
@@ -35,7 +36,8 @@ if (cash >= clickUpgrades.shovel.price){
   cash = cash - clickUpgrades.shovel.price,
   console.log('bought'),
   clickUpgrades.shovel.quantity+=1,
-  clickUpgrades.shovel.multiplier+=1
+  clickUpgrades.shovel.multiplier+=1,
+  cashPC = clickUpgrades.shovel.multiplier
 } else {
   console.log('not enough cash')
 }
@@ -47,58 +49,74 @@ function buybigShovel(){
     cash = cash - clickUpgrades.bigShovel.price,
     console.log('bought'),
     clickUpgrades.bigShovel.quantity+=1,
-    clickUpgrades.bigShovel.multiplier+=1
+    clickUpgrades.bigShovel.multiplier+=5
+    cashPC = clickUpgrades.bigShovel.multiplier
   } else {
     console.log('not enough cash')
   }
   update()
 }
 
-function buyemployee(){
+function buyEmployee(){
   if (cash >= autoUpgrades.employee.price){
     console.log('bought'),
     cash = cash - autoUpgrades.employee.price,
     autoUpgrades.employee.quantity+=1,
-    autoUpgrades.employee.multiplier+=1
+    autoUpgrades.employee.multiplier*2,
+    cashPI = autoUpgrades.employee.multiplier
   }
+  collectAutoUpgrades()
+  startInterval()
     update()
 }
 
-function buycrew(){
+function buyCrew(){
     if (cash >= autoUpgrades.crew.price){ 
     console.log('bought'),
     cash = cash - autoUpgrades.crew.price,
-    autoUpgrades.crew.quantity+=1
+    autoUpgrades.crew.quantity+=1,
+    autoUpgrades.crew.multiplier+=1,
+    cashPI = autoUpgrades.crew.multiplier
   }
   update()
 }
 
 function collectAutoUpgrades(){
-  if(autoUpgrades.employee.quantity > 0){
-cash = cash + autoUpgrades.employee.multiplier
+  
+  if(cashPI > 0){
+startInterval()
   }
+  
 }
+
+
 
 function startInterval() {
   collectionInterval = setInterval(collectAutoUpgrades, 3000);
+  cash = cash + cashPI
+  update()
 }
 
+
+
 function mine (){
-if (clickUpgrades.shovel.quantity > 0){
-cash +=1*clickUpgrades.shovel.multiplier
-} else if (clickUpgrades.bigShovel.quantity > 0){
-  cash +=1*clickUpgrades.bigShovel.multiplier
-}
-(cash +=1)
+if (cashPC > 0){
+cash = cash + cashPC
+} else (cashPC == 0)
+  cash+=1
+
 update()
 }
 
 
 function update() {
-
-  document.getElementById('cash').innerText = cash
   document.getElementById('clickUpgrades.shovel.quantity').innerText = clickUpgrades.shovel.quantity
-  document.getElementById('clickUpgrades.shovel.multiplier').innerText = clickUpgrades.shovel.multiplier
+  document.getElementById('clickUpgrades.bigShovel.quantity').innerText = clickUpgrades.bigShovel.quantity
+  document.getElementById('autoUpgrades.employee.quantity').innerText = autoUpgrades.employee.quantity
+  document.getElementById('autoUpgrades.crew.quantity').innerText = autoUpgrades.crew.quantity
+  document.getElementById('cashPC').innerText = cashPC
+  document.getElementById('cashPI').innerText = cashPI
+  document.getElementById('cash').innerText = cash
 }
 
 
