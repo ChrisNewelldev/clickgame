@@ -23,7 +23,7 @@ let autoUpgrades = {
     multiplier: 3
   },
   crew: {
-    price: 5000,
+    price: 500,
     quantity: 0,
     multiplier: 7
   }
@@ -34,12 +34,11 @@ let autoUpgrades = {
 function buyShovel(){
 if (cash >= clickUpgrades.shovel.price){ 
   cash = cash - clickUpgrades.shovel.price,
-  console.log('bought'),
+  alert('bought'),
   clickUpgrades.shovel.quantity+=1,
-  clickUpgrades.shovel.multiplier+=1,
-  cashPC = clickUpgrades.shovel.multiplier
+  cashPC = cashPC + clickUpgrades.shovel.multiplier
 } else {
-  console.log('not enough cash')
+  alert('not enough cash')
 }
 update()
 }
@@ -47,64 +46,58 @@ update()
 function buybigShovel(){
   if (cash >= clickUpgrades.bigShovel.price){ 
     cash = cash - clickUpgrades.bigShovel.price,
-    console.log('bought'),
+    alert('bought'),
     clickUpgrades.bigShovel.quantity+=1,
-    clickUpgrades.bigShovel.multiplier+=5
-    cashPC = clickUpgrades.bigShovel.multiplier
+    cashPC = cashPC + clickUpgrades.bigShovel.multiplier
   } else {
-    console.log('not enough cash')
+    alert('not enough cash')
   }
   update()
 }
 
 function buyEmployee(){
   if (cash >= autoUpgrades.employee.price){
-    console.log('bought'),
+    alert('bought'),
     cash = cash - autoUpgrades.employee.price,
     autoUpgrades.employee.quantity+=1,
-    autoUpgrades.employee.multiplier*2,
-    cashPI = autoUpgrades.employee.multiplier
+    cashPI = cashPI + autoUpgrades.employee.multiplier
+  } else {
+    alert('not enough cash')
   }
   collectAutoUpgrades()
-  startInterval()
     update()
 }
 
 function buyCrew(){
     if (cash >= autoUpgrades.crew.price){ 
-    console.log('bought'),
+    alert('bought'),
     cash = cash - autoUpgrades.crew.price,
     autoUpgrades.crew.quantity+=1,
-    autoUpgrades.crew.multiplier+=1,
-    cashPI = autoUpgrades.crew.multiplier
+    cashPI = cashPI + autoUpgrades.crew.multiplier
+  } else {
+    alert('not enough cash')
   }
+  collectAutoUpgrades()
   update()
 }
 
 function collectAutoUpgrades(){
-  
   if(cashPI > 0){
-startInterval()
+    cash = cash + cashPI,
+    update()
   }
-  
 }
-
-
 
 function startInterval() {
   collectionInterval = setInterval(collectAutoUpgrades, 3000);
-  cash = cash + cashPI
   update()
 }
-
-
 
 function mine (){
 if (cashPC > 0){
 cash = cash + cashPC
 } else (cashPC == 0)
   cash+=1
-
 update()
 }
 
@@ -120,3 +113,4 @@ function update() {
 }
 
 
+startInterval()
