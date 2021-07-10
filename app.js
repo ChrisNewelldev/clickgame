@@ -3,7 +3,7 @@ let cash = 0;
 
 //maybe declare more variables??
 //figure out the zero problem
-const clickUpgrades = {
+let clickUpgrades = {
   
   shovel: {
     price: 5,
@@ -31,9 +31,12 @@ const autoUpgrades = {
 }
 
 function buyShovel(){
-if (cash >= clickUpgrades.shovel.price, 
+if (cash >= clickUpgrades.shovel.price){ 
   cash = cash - clickUpgrades.shovel.price,
-  console.log('bought'));
+  console.log('bought')
+} else {
+  console.log('not enough cash')
+}
 update()
 }
 
