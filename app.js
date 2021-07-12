@@ -26,10 +26,10 @@ let autoUpgrades = {
     price: 500,
     quantity: 0,
     multiplier: 25
-  }
+  }  
 }
 
-
+//style more and work on stretch goals
 
 function buyShovel(){
 if (cash >= clickUpgrades.shovel.price){ 
